@@ -1,5 +1,7 @@
 <suite name="Project Name">
 
+
+
     <test name = "module 1">
         <classes>
             <class name = "TestNGDemo.Demo1.ClassOne"/>
