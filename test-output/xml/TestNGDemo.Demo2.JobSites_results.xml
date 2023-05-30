@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="study sites"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="16.134">
+  <properties />
+  
+  
+            <testcase name="timesJobs" time="8.882" classname="TestNGDemo.Demo2.JobSites" />
+                <testcase name="foundit" time="4.229" classname="TestNGDemo.Demo2.JobSites" />
+                <testcase name="naukri" time="1.425" classname="TestNGDemo.Demo2.JobSites" />
+                <testcase name="shine" time="1.598" classname="TestNGDemo.Demo2.JobSites" />
+      
+</testsuite>

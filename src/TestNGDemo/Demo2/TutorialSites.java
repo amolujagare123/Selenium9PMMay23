@@ -2,6 +2,7 @@ package TestNGDemo.Demo2;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,6 +26,7 @@ public class TutorialSites {
     public void stackOverflow()
     {
         driver.get("https://stackoverflow.com");
+        Assert.assertEquals(driver.getTitle(),"Stack Overflow","incorrect page/this is not stack overflow");
     }
     @Test
     public void chatGTP()

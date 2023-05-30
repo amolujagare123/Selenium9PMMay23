@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-public class LoginDemo {
+public class LoginInvalidDemo {
 
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
@@ -22,16 +22,10 @@ public class LoginDemo {
         WebElement btnLogin = driver.findElement(By.name("submit"));
         btnLogin.click();
 
-     /*   String expected = "http://localhost/stock/dashboard.php";
-        String actual = driver.getCurrentUrl();*/
-
-    /*    String expected = "POSNIC - Dashboard";
-        String actual = driver.getTitle();*/
-
-        String expected = "Dashboard";
+        String expected = "Wrong Username or Password";
         String actual = "";
         try {
-             actual = driver.findElement(By.xpath("//a[@class='active-tab dashboard-tab']")).getText();
+             actual = driver.findElement(By.xpath("//div[@class='error-box round']")).getText();
         }
         catch (Exception e)
         {

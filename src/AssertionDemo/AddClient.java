@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-public class LoginDemo {
+public class AddClient {
 
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
@@ -17,21 +17,30 @@ public class LoginDemo {
         txtUsername.sendKeys("admin");
 
         WebElement txtPassword = driver.findElement(By.id("login-password"));
-        txtPassword.sendKeys("admin1");
+        txtPassword.sendKeys("admin");
 
         WebElement btnLogin = driver.findElement(By.name("submit"));
         btnLogin.click();
 
-     /*   String expected = "http://localhost/stock/dashboard.php";
-        String actual = driver.getCurrentUrl();*/
+        driver.findElement(By.xpath("//a[normalize-space()='Add Customer']")).click();
 
-    /*    String expected = "POSNIC - Dashboard";
-        String actual = driver.getTitle();*/
+        String name = "Jayanta";
 
-        String expected = "Dashboard";
+        driver.findElement(By.xpath("//input[@id='name']")).sendKeys(name);
+        driver.findElement(By.xpath("//textarea[@name='address']")).sendKeys("xyz");
+        driver.findElement(By.xpath("//input[@name='contact1']")).sendKeys("455454545");
+        driver.findElement(By.xpath("//input[@name='contact2']")).sendKeys("32323232");
+
+
+        driver.findElement(By.xpath("//input[@name='Submit']")).click();
+
+
+
+
+        String expected = "[ "+name+" ] Customer Details Added !";
         String actual = "";
         try {
-             actual = driver.findElement(By.xpath("//a[@class='active-tab dashboard-tab']")).getText();
+             actual = driver.findElement(By.xpath("//div[contains(@class,'box')]")).getText();
         }
         catch (Exception e)
         {

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-public class LoginDemo {
+public class AddClient3 {
 
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
@@ -17,32 +17,40 @@ public class LoginDemo {
         txtUsername.sendKeys("admin");
 
         WebElement txtPassword = driver.findElement(By.id("login-password"));
-        txtPassword.sendKeys("admin1");
+        txtPassword.sendKeys("admin");
 
         WebElement btnLogin = driver.findElement(By.name("submit"));
         btnLogin.click();
 
-     /*   String expected = "http://localhost/stock/dashboard.php";
-        String actual = driver.getCurrentUrl();*/
+        driver.findElement(By.xpath("//a[normalize-space()='Add Customer']")).click();
 
-    /*    String expected = "POSNIC - Dashboard";
-        String actual = driver.getTitle();*/
 
-        String expected = "Dashboard";
+        driver.findElement(By.xpath("//input[@name='Submit']")).click();
+
+
+
+
+       String expected = "PLEASE ENTER A CUSTOMER NAME";
         String actual = "";
         try {
-             actual = driver.findElement(By.xpath("//a[@class='active-tab dashboard-tab']")).getText();
+             actual = driver.findElement(By.xpath("//label[@for='name']")).getText();
         }
         catch (Exception e)
         {
 
         }
 
-
         System.out.println("expected="+expected);
         System.out.println("actual="+actual);
 
-        Assert.assertEquals(actual,expected,"this is not a dashboard");
+
+        Assert.assertEquals(actual,expected,
+                "incorrect error message or error message is absent");
+
+
+
+
+
 
     }
 }
