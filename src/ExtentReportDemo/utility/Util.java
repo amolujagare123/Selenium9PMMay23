@@ -1,5 +1,7 @@
 package ExtentReportDemo.utility;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -30,5 +32,24 @@ public class Util {
         FileUtils.copyFile(scrFile,new File("Report\\screenshots\\"+fileName));
 
         return fileName;
+    }
+
+    public static ExtentReports initExtentReport()
+    {
+        ExtentSparkReporter reporter = new ExtentSparkReporter("Report/report.html");
+        ExtentReports extent = new ExtentReports();
+        extent.attachReporter(reporter);
+
+        reporter.config().setDocumentTitle("Stock Management System");
+        reporter.config().setReportName("Regression Testing");
+
+        extent.setSystemInfo("Project Name","Stock Management");
+        extent.setSystemInfo("Developers Name","Nisha");
+        extent.setSystemInfo("Testers Name","Narayanam");
+        extent.setSystemInfo("Project deadline","31 May 2023");
+        extent.setSystemInfo("Technology used","Java / MySql");
+
+        return extent;
+
     }
 }
